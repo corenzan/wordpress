@@ -1,0 +1,11 @@
+{
+  "require": {
+    "php": ">=7.1",
+    "ext-gd": "*",
+    "johnpbloch/wordpress": "5.0.x-dev"
+  },
+  "extra": {
+    "wordpress-install-dir": "wordpress"
+  },
+  "minimum-stability": "dev"
+}

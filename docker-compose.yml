@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    image: haggen/wordpress
+    depends_on:
+      - db
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/localhost/htdocs
+    working_dir: /var/www/localhost/htdocs
+    environment:
+      - DATABASE_URL=mysql://root:123@db/default
+      - WP_DEBUG=true
+  db:
+    image: mariadb:10.3
+    restart: always
+    environment:
+      - MYSQL_DATABASE=default
+      - MYSQL_ROOT_PASSWORD=123

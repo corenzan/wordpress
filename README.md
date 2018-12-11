@@ -1,8 +1,14 @@
 <h1 align="center">WordPress development with Composer and Docker</h1>
 
+## About
+
+- Use docker-compose to orchestrate your services
+- Use composer to manage PHP extensions, the WordPress installation, third-party themes and plugins
+- Use Git to track your own made themes and plugins
+
 ## Usage
 
-Copy your theme over to `wp-content/themes/` and then run:
+Copy your theme and/or plugins over to `wp-content/` and then run:
 
 ```shell
 $ docker-compose start

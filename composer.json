@@ -12,12 +12,6 @@
     "wpackagist-plugin/akismet": "dev-trunk"
   },
   "extra": {
-    "wordpress-install-dir": "wordpress",
-    "installer-paths": {
-      "wordpress/{$name}/": [
-        "type:wordpress-plugin",
-        "type:wordpress-theme"
-      ]
-    }
+    "wordpress-install-dir": "wordpress"
   }
 }

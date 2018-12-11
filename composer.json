@@ -1,10 +1,23 @@
 {
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
   "require": {
     "php": ">=7.2",
     "ext-gd": "*",
-    "johnpbloch/wordpress": ">=5.0"
+    "johnpbloch/wordpress": ">=5.0",
+    "wpackagist-plugin/akismet": "dev-trunk"
   },
   "extra": {
-    "wordpress-install-dir": "wordpress"
+    "wordpress-install-dir": "wordpress",
+    "installer-paths": {
+      "wordpress/{$name}/": [
+        "type:wordpress-plugin",
+        "type:wordpress-theme"
+      ]
+    }
   }
 }

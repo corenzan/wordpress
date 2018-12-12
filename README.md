@@ -20,3 +20,5 @@ To check the ports assigned to you, run:
 ```shell
 $ docker ps
 ```
+
+To redirect missing uploads to the production site fill in the `UPLOADS_URL` in `docker-compose.yml` with the hostname of your site.

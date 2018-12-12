@@ -11,6 +11,7 @@ services:
     working_dir: /var/www/localhost/htdocs
     environment:
       - DATABASE_URL=mysql://root:123@db/wordpress
+      - UPLOADS_URL=
       - WP_DEBUG=true
   db:
     image: mariadb:10.3

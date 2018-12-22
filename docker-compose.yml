@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: haggen/wordpress
+    image: haggen/wordpress:apache
     depends_on:
       - db
     ports:

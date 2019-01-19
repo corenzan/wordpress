@@ -2,9 +2,9 @@
 
 ## About
 
-- Use docker-compose to orchestrate your services
-- Use composer to manage PHP extensions, the WordPress installation, third-party themes and plugins
-- Use Git to track your own made themes and plugins
+- Use docker-compose to orchestrate your services.
+- Use composer to manage PHP extensions, the WordPress installation, third-party themes, plugins, and translations.
+- Use Git to track your own made themes and plugins.
 
 ## Usage
 
@@ -15,10 +15,4 @@ $ docker-compose start
 $ docker-compose exec web composer install
 ```
 
-To check the ports assigned to you, run:
-
-```shell
-$ docker ps
-```
-
-To redirect missing uploads to the production site fill in the `UPLOADS_URL` in `docker-compose.yml` with the hostname of your site.
+To redirect missing uploads to the production site fill in the `UPLOADS_URL` in `docker-compose.yml` with the URL of your site.

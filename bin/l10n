@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+#
+# WordPress localization script utility.
+# The MIT License © 2019 Corenzan
+# More on https://developer.wordpress.org/themes/functionality/localization/
+#
+
+if ! command -v gettext >/dev/null 2>&1; then
+	echo "gettext is missing, get it from https://www.gnu.org/software/gettext/" >&2
+	exit 1
+fi
+
+theme=""
+package=""
+email=""
+author=""
+
+case "$1" in
+	pot)
+		xgettext --package-name="$package" --msgid-bugs-address=$email --copyright-holder="$author" --sort-by-file -k__ -o wp-content/themes/$theme/template.pot wp-content/themes/$theme/**/*.php
+		;;
+	po)
+		mkdir -p wp-content/themes/$theme/languages/
+		lang="${2:-pt_BR}"
+		if test -f wp-content/themes/$theme/languages/$lang.po; then
+			msgmerge -U wp-content/themes/$theme/languages/$lang.po wp-content/themes/$theme/template.pot
+		else
+			msginit -l $lang.UTF-8 -o wp-content/themes/$theme/languages/$lang.po -i wp-content/themes/$theme/template.pot
+		fi
+		;;
+	mo)
+		lang="${2:-pt_BR}"
+		msgfmt wp-content/themes/$theme/languages/$lang.po -o wp-content/themes/$theme/languages/$lang.mo
+		;;
+	*)
+		cat <<-EOF >&2
+			invalid command, try "$0 <command>", where command is one of:
+
+			  - pot: to collect all strings from php source and update the pot file
+			  - po <language>: to generate po file from the pot file in the given language (default "pt_BR")
+			  - mo <language>: to generate mo file from the po file in the given language (default "pt_BR")
+		EOF
+		exit 1
+		;;
+esac

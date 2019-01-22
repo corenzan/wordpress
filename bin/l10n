@@ -1,45 +1,114 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 # WordPress localization script utility.
 # The MIT License © 2019 Corenzan
 # More on https://developer.wordpress.org/themes/functionality/localization/
 #
 
+set -ue
+
 if ! command -v gettext >/dev/null 2>&1; then
 	echo "gettext is missing, get it from https://www.gnu.org/software/gettext/" >&2
 	exit 1
 fi
 
-theme=""
-package=""
-email=""
+help() {
+	cat <<-EOF >&2
+		Usage:
+		    $0 <options> <command>
+
+		Options:
+		    -d, --prefix <directory>
+		    -c, --copyright <holder name>
+		    -u, --author <author>
+		    -p, --package <package>
+		    -l, --language <language>
+
+		Commands:
+		    pot, po, mo
+	EOF
+}
+
+generate_pot() {
+	find "$prefix" -iname "*.php" | xargs xgettext \
+		--package-name="$package" \
+		--msgid-bugs-address="$author" \
+		--copyright-holder="$copyright" \
+		--sort-by-file -k__ \
+		--from-code=UTF-8 \
+		-o "$prefix/template.pot"
+}
+
+generate_po() {
+	mkdir -p "$prefix/languages/"
+	if test -f "$prefix/languages/$language.po"; then
+		msgmerge -U "$prefix/languages/$language.po" "$prefix/template.pot"
+	else
+		msginit -l $language.UTF-8 -o "$prefix/languages/$language.po" -i "$prefix/template.pot"
+	fi
+}
+
+generate_mo() {
+	msgfmt "$prefix/languages/$language.po" -o "$prefix/languages/$language.mo"
+}
+
+prefix=""
+action=""
+copyright=""
 author=""
+language=""
+package=""
 
-case "$1" in
-	pot)
-		xgettext --package-name="$package" --msgid-bugs-address=$email --copyright-holder="$author" --sort-by-file -k__ -o wp-content/themes/$theme/template.pot wp-content/themes/$theme/**/*.php
-		;;
-	po)
-		mkdir -p wp-content/themes/$theme/languages/
-		lang="${2:-pt_BR}"
-		if test -f wp-content/themes/$theme/languages/$lang.po; then
-			msgmerge -U wp-content/themes/$theme/languages/$lang.po wp-content/themes/$theme/template.pot
-		else
-			msginit -l $lang.UTF-8 -o wp-content/themes/$theme/languages/$lang.po -i wp-content/themes/$theme/template.pot
-		fi
-		;;
-	mo)
-		lang="${2:-pt_BR}"
-		msgfmt wp-content/themes/$theme/languages/$lang.po -o wp-content/themes/$theme/languages/$lang.mo
-		;;
-	*)
-		cat <<-EOF >&2
-			invalid command, try "$0 <command>", where command is one of:
+while test $# -gt 0; do
+	case "$1" in
+		-d|--prefix)
+			prefix="$2"
+			shift
+			;;
+		-c|--copyright)
+			copyright="$2"
+			shift
+			;;
+		-u|--author)
+			author="$2"
+			shift
+			;;
+		-p|--package)
+			package="$2"
+			shift
+			;;
+		-l|--language)
+			language="$2"
+			shift
+			;;
+		pot)
+			action="generate_pot"
+			;;
+		po)
+			action="generate_po"
+			;;
+		mo)
+			action="generate_mo"
+			;;
+		*)
+			help
+			exit 1
+			;;
+	esac
 
-			  - pot: to collect all strings from php source and update the pot file
-			  - po <language>: to generate po file from the pot file in the given language (default "pt_BR")
-			  - mo <language>: to generate mo file from the po file in the given language (default "pt_BR")
-		EOF
-		exit 1
-		;;
-esac
+	shift
+done
+set -- "${POSITIONAL[@]}"
+
+language="${language:-pt_BR}"
+action="${action:-help}"
+prefix="${prefix:-$PWD}"
+
+prefix="$(realpath $prefix)"
+if ! test -d "$prefix"; then
+	echo "'$prefix' is not a directory" >&2
+	exit 1
+fi
+
+$action
+exit 0

@@ -10,6 +10,7 @@ services:
       - .:/var/www/localhost/htdocs
     working_dir: /var/www/localhost/htdocs
     environment:
+      - VIRTUAL_HOST=wordpress.localhost
       - DATABASE_URL=mysql://root:123@db/wordpress
       - UPLOADS_URL=
       - WP_DEBUG=true

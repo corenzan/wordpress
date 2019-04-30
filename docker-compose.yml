@@ -15,7 +15,7 @@ services:
       - UPLOADS_URL=
       - WP_DEBUG=true
   db:
-    image: mariadb:10.3
+    image: mariadb:10
     ports:
       - 3306
     environment:

@@ -50,14 +50,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         getenv('WP_AUTH_KEY'));
-define('SECURE_AUTH_KEY',  getenv('WP_SECURE_AUTH_KEY'));
-define('LOGGED_IN_KEY',    getenv('WP_LOGGED_IN_KEY'));
-define('NONCE_KEY',        getenv('WP_NONCE_KEY'));
-define('AUTH_SALT',        getenv('WP_AUTH_SALT'));
+define('AUTH_KEY', getenv('WP_AUTH_KEY'));
+define('SECURE_AUTH_KEY', getenv('WP_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY', getenv('WP_LOGGED_IN_KEY'));
+define('NONCE_KEY', getenv('WP_NONCE_KEY'));
+define('AUTH_SALT', getenv('WP_AUTH_SALT'));
 define('SECURE_AUTH_SALT', getenv('WP_SECURE_AUTH_SALT'));
-define('LOGGED_IN_SALT',   getenv('WP_LOGGED_IN_SALT'));
-define('NONCE_SALT',       getenv('WP_NONCE_SALT'));
+define('LOGGED_IN_SALT', getenv('WP_LOGGED_IN_SALT'));
+define('NONCE_SALT', getenv('WP_NONCE_SALT'));
 
 
 /**#@-*/
@@ -88,14 +88,14 @@ define('WP_DEBUG', (bool)getenv('WP_DEBUG'));
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-  $_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = 'on';
 }
 $protocol = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 
 // Update wp-content path.
 // https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
-define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
-define('WP_CONTENT_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content');
+// define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+// define('WP_CONTENT_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content');
 
 define('WP_HOME', $protocol . '://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
@@ -103,8 +103,9 @@ define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if (!defined('ABSPATH')) {
+    define('ABSPATH', dirname(__FILE__) . '/');
+}
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

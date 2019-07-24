@@ -7,25 +7,41 @@
     {
       "type": "composer",
       "url": "https://wp-languages.github.io"
+    },
+    {
+      "type": "path",
+      "url": "packages/plugins/*"
+    },
+    {
+      "type": "path",
+      "url": "packages/themes/*"
     }
   ],
   "require": {
-    "php": ">=7.2",
-    "ext-gd": "*",
-    "johnpbloch/wordpress": ">=5.0",
-    "koodimonni-language/pt_BR": "*",
+    "php": "^7.3",
+    "local/my-theme": "*",
+    "roots/wordpress": "^5.0",
+    "koodimonni-language/pt_br": "*",
     "wpackagist-plugin/akismet": "dev-trunk"
   },
   "extra": {
-    "wordpress-install-dir": "wordpress",
+    "wordpress-install-dir": "public",
+    "installer-paths": {
+      "public/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
     "dropin-paths": {
-      "wp-content/languages/": [
+      "public/wp-content/languages/": [
         "vendor:koodimonni-language"
       ],
-      "wp-content/languages/plugins/": [
+      "public/wp-content/languages/plugins/": [
         "vendor:koodimonni-plugin-language"
       ],
-      "wp-content/languages/themes/": [
+      "public/wp-content/languages/themes/": [
         "vendor:koodimonni-theme-language"
       ]
     }

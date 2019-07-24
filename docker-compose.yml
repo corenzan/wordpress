@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: haggen/wordpress:apache
+    image: corenzan/wordpress
     depends_on:
       - db
     ports:
@@ -12,8 +12,8 @@ services:
     environment:
       - VIRTUAL_HOST=wordpress.localhost
       - DATABASE_URL=mysql://root:123@db/wordpress
-      - UPLOADS_URL=
       - WP_DEBUG=true
+      - REMOTE_URL=
   db:
     image: mariadb:10
     ports:

@@ -1,14 +1,10 @@
 RewriteEngine on
 
-RewriteCond %{ENV:UPLOADS_URL} .+
-RewriteCond %{REQUEST_URI} ^/wp-content/uploads/.+$
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ %{ENV:UPLOADS_URL}/$1 [END]
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) public/$1 [L]
 
+RewriteCond %{REQUEST_URI} ^public/wp-content/uploads/
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ wordpress/$1
+RewriteRule public/(.*) %{ENV:REMOTE_URL}/$1 [END]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule .* /index.php [END]
+

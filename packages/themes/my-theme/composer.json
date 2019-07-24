@@ -1,0 +1,8 @@
+{
+  "name": "local/my-theme",
+  "version": "1.0.1",
+  "type": "wordpress-theme",
+  "require": {
+    "local/my-plugin": "*"
+  }
+}

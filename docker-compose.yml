@@ -2,22 +2,25 @@ version: "3"
 services:
   web:
     image: corenzan/wordpress
-    depends_on:
-      - db
-    ports:
-      - 80
+    networks:
+      - default
+      - traefik
     volumes:
       - .:/var/www/localhost/htdocs
-    working_dir: /var/www/localhost/htdocs
     environment:
-      - VIRTUAL_HOST=wordpress.localhost
       - DATABASE_URL=mysql://root:123@db/wordpress
+      - REMOTE_URL=https://example.org
       - WP_DEBUG=true
-      - REMOTE_URL=
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.wordpress.rule=Host(`wordpress.localhost`)
   db:
-    image: mariadb:10
+    image: mariadb:10.3
     ports:
       - 3306
     environment:
       - MYSQL_DATABASE=wordpress
       - MYSQL_ROOT_PASSWORD=123
+networks:
+  traefik:
+    external: true

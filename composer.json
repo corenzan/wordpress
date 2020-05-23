@@ -10,22 +10,25 @@
     },
     {
       "type": "path",
-      "url": "packages/plugins/*"
-    },
-    {
-      "type": "path",
-      "url": "packages/themes/*"
+      "url": "packages/*",
+      "options": {
+        "symlink": true
+      }
     }
   ],
   "require": {
     "php": "^7.3",
-    "local/my-theme": "*",
-    "roots/wordpress": "^5.0",
+    "ext-exif": "*",
+    "ext-gd": "*",
+    "ext-pdo": "*",
+    "ext-bcmath": "*",
+    "ext-mbstring": "*",
+    "roots/wordpress": "^5.4",
     "koodimonni-language/pt_br": "*",
-    "wpackagist-plugin/akismet": "dev-trunk"
+    "local/my-theme": "*"
   },
   "extra": {
-    "wordpress-install-dir": "public",
+    "wordpress-install-dir": "public/wp-core",
     "installer-paths": {
       "public/wp-content/plugins/{$name}/": [
         "type:wordpress-plugin"

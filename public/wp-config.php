@@ -40,7 +40,6 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -59,7 +58,6 @@ define('SECURE_AUTH_SALT', getenv('WP_SECURE_AUTH_SALT'));
 define('LOGGED_IN_SALT', getenv('WP_LOGGED_IN_SALT'));
 define('NONCE_SALT', getenv('WP_NONCE_SALT'));
 
-
 /**#@-*/
 
 /**
@@ -68,7 +66,7 @@ define('NONCE_SALT', getenv('WP_NONCE_SALT'));
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'wp_';
+$table_prefix = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -82,20 +80,33 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', (bool)getenv('WP_DEBUG'));
-// define('WP_DEBUG', true);
+define('WP_DEBUG', (bool) getenv('WP_DEBUG'));
+
+/**
+ * Disable the plugin and theme editors to prevent crashes and security breaches.
+ *
+ * @link See https://wordpress.org/support/article/editing-wp-config-php/#disable-the-plugin-and-theme-editor
+ */
+define('DISALLOW_FILE_EDIT', true);
 
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-    $_SERVER['HTTPS'] = 'on';
+if (
+  isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+  $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
+) {
+  $_SERVER['HTTPS'] = 'on';
 }
-$protocol = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
+$protocol =
+  isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 
 // Update wp-content path.
 // https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
-// define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
-// define('WP_CONTENT_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content');
+define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+define(
+  'WP_CONTENT_URL',
+  $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content'
+);
 
 define('WP_HOME', $protocol . '://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
@@ -104,8 +115,8 @@ define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
 
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH')) {
-    define('ABSPATH', dirname(__FILE__) . '/');
+  define('ABSPATH', dirname(__FILE__) . '/');
 }
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';

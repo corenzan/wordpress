@@ -5,6 +5,8 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 *.log
+*.zip
 sitemap.xml*
-public/
+public/wp-core/
+public/wp-content/
 vendor/

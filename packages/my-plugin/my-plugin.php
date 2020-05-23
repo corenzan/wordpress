@@ -7,5 +7,5 @@
 
 function my_plugin()
 {
-    return "my plugin";
+  return "my plugin";
 }

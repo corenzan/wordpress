@@ -1,17 +1,22 @@
-<h1 align="center">WordPress development with Docker and Composer</h1>
+# WordPress + Docker + Composer
 
 ## About
 
-- Use docker-compose to orchestrate your services.
-- Use composer to manage PHP extensions, the WordPress installation, themes, plugins, and translations.
-- Use Git to track your own made themes and plugins.
-- Pull missing uploads from your website for easier maintenance.
+- Docker and Traefik give speed and isolation during development.
+- Composer allows for easy management of PHP version, extensions and packages.
+- Git to track your all configuration files, and own themes and plugins.
+- Access denied outside public directory.
+- Load missing uploads directly from your website for easier maintenance.
 
 ## Usage
+
+Clone this repository, edit values in `docker-compose.yml` and `composer.json`.
 
 ```shell
 $ docker-compose start
 $ docker-compose exec web composer install
 ```
 
-> To redirect missing uploads to the production site fill in the `REMOTE_URL` variable in `docker-compose.yml` with the URL of your website.
+## Legal
+
+The MIT License © 2019 Arthur Corenzan

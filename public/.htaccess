@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteCond %{REQUEST_URI} /wp-content/uploads/
+RewriteCond %{ENV:REMOTE_URL} ^https?://.+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.+) %{ENV:REMOTE_URL}/$1 [END]
 

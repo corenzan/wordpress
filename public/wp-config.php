@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The base configuration for WordPress
  *
@@ -19,20 +20,20 @@
  */
 
 // You'll need a DATABASE_URL env variable set.
-$database = parse_url(getenv('DATABASE_URL'));
+$database_url = parse_url(getenv('DATABASE_URL'));
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', substr($database['path'], 1));
+define('DB_NAME', substr($database_url['path'], 1));
 
 /** MySQL database username */
-define('DB_USER', $database['user']);
+define('DB_USER', $database_url['user']);
 
 /** MySQL database password */
-define('DB_PASSWORD', $database['pass']);
+define('DB_PASSWORD', $database_url['pass']);
 
 /** MySQL hostname */
-define('DB_HOST', $database['host']);
+define('DB_HOST', $database_url['host']);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -83,40 +84,81 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', (bool) getenv('WP_DEBUG'));
 
 /**
- * Disable the plugin and theme editors to prevent crashes and security breaches.
+ * Disable the plugin and theme editors to improve security and reliability.
  *
  * @link See https://wordpress.org/support/article/editing-wp-config-php/#disable-the-plugin-and-theme-editor
  */
 define('DISALLOW_FILE_EDIT', true);
 
-// If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
-// see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
+/**
+ * Prevent file modifications since our environment is ephemeral.
+ *
+ * @link https://developer.wordpress.org/reference/functions/wp_is_file_mod_allowed/
+ */
+define('DISALLOW_FILE_MODS', true);
+
+/**
+ * Disable automatic updates.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/automatic_updater_disabled/
+ */
+define('AUTOMATIC_UPDATER_DISABLED', true);
+
+/**
+ * If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact.
+ *
+ * @link http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
+ */
 if (
   isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
   $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
 ) {
   $_SERVER['HTTPS'] = 'on';
 }
-$protocol =
-  isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 
-// Update wp-content path.
-// https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
+// Figure out protocol.
+$protocol = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+
+/**
+ * Update wp-content path.
+ *
+ * @link https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
+ */
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
 define(
   'WP_CONTENT_URL',
   $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content'
 );
 
+/**
+ * Accept whatever incoming hostname as our site domain.
+ *
+ * @link https://wordpress.org/support/article/changing-the-site-url/#changing-the-site-url
+ */
 define('WP_HOME', $protocol . '://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
 
-/* That's all, stop editing! Happy blogging. */
+/**
+ * Configure S3 Uploads plugin.
+ * 
+ * @link https://github.com/humanmade/S3-Uploads
+ */
+define('S3_UPLOADS_BUCKET', getenv('S3_BUCKET'));
+define('S3_UPLOADS_REGION', getenv('S3_REGION'));
+define('S3_UPLOADS_KEY', getenv('S3_KEY'));
+define('S3_UPLOADS_SECRET', getenv('S3_SECRET'));
 
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH')) {
   define('ABSPATH', dirname(__FILE__) . '/');
 }
+
+/**
+ * Composer's autoloader.
+ * 
+ * @link https://getcomposer.org/doc/01-basic-usage.md#autoloading
+ */
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';

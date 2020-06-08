@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
 <main>
-  <?php while (have_posts()): the_post(); ?>
+  <?php while (have_posts()) : ?>
+    <?php the_post(); ?>
     <article>
       <h1><?php the_title(); ?></h1>
       <?php the_content(); ?>
@@ -9,4 +10,4 @@
   <?php endwhile; ?>
 </main>
 
-<?php get_footer();
+<?php get_footer(); ?>

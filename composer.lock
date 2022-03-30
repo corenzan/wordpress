@@ -59,12 +59,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Aws\\": "src/"
-                },
                 "files": [
                     "src/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Aws\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -263,12 +263,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -321,12 +321,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -347,16 +347,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.1",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
-                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
@@ -369,24 +369,24 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
             },
             "suggest": {
-                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -394,12 +394,33 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
                 }
             ],
@@ -414,7 +435,21 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-07-01T23:21:34+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "humanmade/s3-uploads",
@@ -463,25 +498,42 @@
             "require": {
                 "koodimonni-plugin-language/akismet-pt_br": "*",
                 "koodimonni-plugin-language/bbpress-pt_br": "*",
+                "koodimonni-plugin-language/blogger-importer-pt_br": "*",
+                "koodimonni-plugin-language/buddypress-pt_br": "*",
+                "koodimonni-plugin-language/classic-editor-pt_br": "*",
+                "koodimonni-plugin-language/classic-widgets-pt_br": "*",
+                "koodimonni-plugin-language/debug-bar-pt_br": "*",
+                "koodimonni-plugin-language/health-check-pt_br": "*",
+                "koodimonni-plugin-language/hello-dolly-pt_br": "*",
+                "koodimonni-plugin-language/livejournal-importer-pt_br": "*",
+                "koodimonni-plugin-language/movabletype-importer-pt_br": "*",
+                "koodimonni-plugin-language/press-this-pt_br": "*",
+                "koodimonni-plugin-language/tumblr-importer-pt_br": "*",
                 "koodimonni-plugin-language/woocommerce-pt_br": "*",
                 "koodimonni-plugin-language/wordpress-importer-pt_br": "*",
+                "koodimonni-plugin-language/wp-autoupdates-pt_br": "*",
+                "koodimonni-plugin-language/wp-front-end-editor-pt_br": "*",
+                "koodimonni-plugin-language/wpcat2tag-importer-pt_br": "*",
                 "koodimonni-theme-language/twentyeleven-pt_br": "*",
                 "koodimonni-theme-language/twentyfifteen-pt_br": "*",
                 "koodimonni-theme-language/twentyfourteen-pt_br": "*",
+                "koodimonni-theme-language/twentynineteen-pt_br": "*",
+                "koodimonni-theme-language/twentyseventeen-pt_br": "*",
                 "koodimonni-theme-language/twentysixteen-pt_br": "*",
                 "koodimonni-theme-language/twentyten-pt_br": "*",
                 "koodimonni-theme-language/twentythirteen-pt_br": "*",
                 "koodimonni-theme-language/twentytwelve-pt_br": "*",
+                "koodimonni-theme-language/twentytwenty-pt_br": "*",
+                "koodimonni-theme-language/twentytwentyone-pt_br": "*",
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Full Wordpress translation (including themes and core plugins) for Portuguese (Brazil) - pt_br",
+            "description": "Full WordPress translation (including themes and core plugins) for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Full-Package",
                 "Translation",
-                "Wordpress",
-                "pt_br",
-                "twentysixteen"
+                "WordPress",
+                "pt_br"
             ]
         },
         {
@@ -495,10 +547,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress akismet translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress akismet translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "akismet",
                 "pt_br"
             ]
@@ -514,12 +566,221 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress bbpress translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress bbpress translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "bbpress",
                 "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/blogger-importer-pt_br",
+            "version": "0.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/blogger-importer/0.9/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress blogger-importer translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "blogger-importer",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/buddypress-pt_br",
+            "version": "10.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/buddypress/10.2.0/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress buddypress translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "buddypress",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/classic-editor-pt_br",
+            "version": "1.6.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/classic-editor/1.6.2/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress classic-editor translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "classic-editor",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/classic-widgets-pt_br",
+            "version": "0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/classic-widgets/0.3/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress classic-widgets translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "classic-widgets",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/debug-bar-pt_br",
+            "version": "1.1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/debug-bar/1.1.2/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress debug-bar translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "debug-bar",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/health-check-pt_br",
+            "version": "1.4.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/health-check/1.4.5/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress health-check translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "health-check",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/hello-dolly-pt_br",
+            "version": "1.7.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/hello-dolly/1.7.2/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress hello-dolly translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "hello-dolly",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/livejournal-importer-pt_br",
+            "version": "0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/livejournal-importer/0.5/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress livejournal-importer translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "livejournal-importer",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/movabletype-importer-pt_br",
+            "version": "0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/movabletype-importer/0.4/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress movabletype-importer translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "movabletype-importer",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/press-this-pt_br",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/press-this/1.1.1/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress press-this translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "press-this",
+                "pt_br"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/tumblr-importer-pt_br",
+            "version": "0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/tumblr-importer/0.8/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress tumblr-importer translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "tumblr-importer"
             ]
         },
         {
@@ -533,10 +794,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress woocommerce translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress woocommerce translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "woocommerce"
             ]
@@ -552,12 +813,69 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress wordpress-importer translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress wordpress-importer translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "wordpress-importer"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wp-autoupdates-pt_br",
+            "version": "0.8.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wp-autoupdates/0.8.1/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wp-autoupdates translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "wp-autoupdates"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wp-front-end-editor-pt_br",
+            "version": "2.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wp-front-end-editor/2.2.1/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wp-front-end-editor translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "wp-front-end-editor"
+            ]
+        },
+        {
+            "name": "koodimonni-plugin-language/wpcat2tag-importer-pt_br",
+            "version": "0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/plugin/wpcat2tag-importer/0.5/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress wpcat2tag-importer translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "wpcat2tag-importer"
             ]
         },
         {
@@ -571,10 +889,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentyeleven translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentyeleven translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentyeleven"
             ]
@@ -590,10 +908,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentyfifteen translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentyfifteen translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentyfifteen"
             ]
@@ -609,12 +927,50 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentyfourteen translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentyfourteen translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentyfourteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentynineteen-pt_br",
+            "version": "2.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentynineteen/2.2/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentynineteen translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "twentynineteen"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentyseventeen-pt_br",
+            "version": "2.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentyseventeen/2.9/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentyseventeen translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "twentyseventeen"
             ]
         },
         {
@@ -628,10 +984,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentysixteen translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentysixteen translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentysixteen"
             ]
@@ -647,10 +1003,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentyten translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentyten translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentyten"
             ]
@@ -666,10 +1022,10 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentythirteen translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentythirteen translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentythirteen"
             ]
@@ -685,12 +1041,50 @@
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
             },
             "type": "wordpress-language",
-            "description": "Wordpress twentytwelve translation for Portuguese (Brazil) - pt_br",
+            "description": "WordPress twentytwelve translations for Portuguese (Brazil) - pt_br",
             "keywords": [
                 "Translation",
-                "Wordpress",
+                "WordPress",
                 "pt_br",
                 "twentytwelve"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwenty-pt_br",
+            "version": "1.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwenty/1.9/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwenty translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "twentytwenty"
+            ]
+        },
+        {
+            "name": "koodimonni-theme-language/twentytwentyone-pt_br",
+            "version": "1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/translation/theme/twentytwentyone/1.0/pt_BR.zip"
+            },
+            "require": {
+                "koodimonni/composer-dropin-installer": ">=0.2.3"
+            },
+            "type": "wordpress-language",
+            "description": "WordPress twentytwentyone translations for Portuguese (Brazil) - pt_br",
+            "keywords": [
+                "Translation",
+                "WordPress",
+                "pt_br",
+                "twentytwentyone"
             ]
         },
         {
@@ -796,12 +1190,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "JmesPath\\": "src/"
-                },
                 "files": [
                     "src/JmesPath.php"
-                ]
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -966,8 +1360,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.4.1",
-                "reference": "5.4.1"
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.4.1"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -1141,12 +1534,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1215,12 +1608,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1285,12 +1678,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php72\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1343,7 +1736,7 @@
                 "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.8.11.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
@@ -1361,7 +1754,7 @@
                 "url": "https://downloads.wordpress.org/plugin/html-forms.1.3.16.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/html-forms/"
@@ -1379,7 +1772,7 @@
                 "url": "https://downloads.wordpress.org/plugin/wordpress-importer.0.7.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-importer/"
